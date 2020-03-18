@@ -1,0 +1,7 @@
+#screen{
+    position: relative;
+    width: 350px;
+    height: 200px;
+    border-radius: 10px;
+    background-color: black;
+}
