@@ -10,6 +10,8 @@ import { ProjectsComponent } from './projects/projects.component';
 import { ContactComponent } from './contact/contact.component';
 import { PcScreenComponent } from './pc-screen/pc-screen.component';
 import { TypingTextComponent } from './typing-text/typing-text.component';
+import { CursorComponent } from './cursor/cursor.component';
+import { MatrixComponent } from './matrix/matrix.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,8 @@ import { TypingTextComponent } from './typing-text/typing-text.component';
     ContactComponent,
     PcScreenComponent,
     TypingTextComponent,
+    CursorComponent,
+    MatrixComponent,
     
   ],
   imports: [
