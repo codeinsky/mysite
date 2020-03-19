@@ -12,6 +12,7 @@ import { PcScreenComponent } from './pc-screen/pc-screen.component';
 import { TypingTextComponent } from './typing-text/typing-text.component';
 import { CursorComponent } from './cursor/cursor.component';
 import { MatrixComponent } from './matrix/matrix.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { MatrixComponent } from './matrix/matrix.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    BrowserAnimationsModule
     
   ],
   providers: [],
