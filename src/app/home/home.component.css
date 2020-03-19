@@ -1,6 +1,20 @@
+@import "~bootstrap/dist/css/bootstrap.css";
 #screen{
     
     position: relative;
-    top:140px;
+    top:100px;
     margin-left: 40px;
+}
+
+#card{
+    border-radius: 25px;
+}
+
+#body{
+    height: 400px;
+}
+
+#runbtn{
+    position: relative;
+    left:320px;
 }
