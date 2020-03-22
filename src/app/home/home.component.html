@@ -5,9 +5,9 @@
      <h4> Welcome </h4>
     </div>
     <div class="card-body" id="body">
-      <button id="runbtn" type="button" class="btn btn-secondary">RUN</button>
+      <button (click)=switchMatrix()   id="runbtn" type="button" class="btn btn-secondary">RUN</button>
 
-      <app-matrix></app-matrix>
+      <app-matrix [show]=showMatrixTrigger></app-matrix>
             <app-typing-text 
             commandLine='System.out.println("Hello word!!");'
             color="black"

@@ -1,1 +1,7 @@
-<span [@matrix]="{value :'go' , params: {time:'1500ms'}}" >0</span>
+<div *ngIf=show>
+<span *ngFor="let param of params;" id="bin" 
+[@matrix]="{value :'go' , params: {time:'2500' , left:param.width}}" > 
+        {{param.symbol}}
+</span>
+</div>
+
