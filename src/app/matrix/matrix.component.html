@@ -1,7 +1,7 @@
 <div *ngIf=show >
-<span *ngFor="let param of params;" id="bin"
-[@matrix]="{value :'go' , params: {time:param.speed , left:param.width}}" > 
-        {{param.symbol}}
-</span>
+        <span *ngFor="let param of params;" id="bin"
+                [@matrix]="{value :'go' , params: {time:param.speed , left:param.width}}" > 
+                        {{param.symbol}}
+        </span>
 </div>
 

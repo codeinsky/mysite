@@ -2,7 +2,7 @@
 #screen{
     
     position: relative;
-    top:100px;
+    top:20px;
     margin-left: 40px;
 }
 
@@ -17,4 +17,14 @@
 #runbtn{
     position: relative;
     left:320px;
+}
+
+#matrix{
+    position: relative;
+    top: 10px;
+    height: 100px;
+    width: 400px;
+    left: 10px;
+    border-style: solid;
+
 }

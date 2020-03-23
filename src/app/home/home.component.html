@@ -6,14 +6,15 @@
     </div>
     <div class="card-body" id="body">
       <button (click)=switchMatrix() id="runbtn" type="button" class="btn btn-secondary">RUN</button>
-      <app-typing-text 
-            commandLine='System.out.println("Hello word!!");'
-            color="black"
-            delayTime=100>
+            <app-typing-text 
+              commandLine='System.out.println("Hello word!!");'
+              color="black"
+              delayTime=100>
             </app-typing-text>
-      <app-matrix [show]=showMatrixTrigger></app-matrix>
             
-
+            <div id="matrix">
+              <app-matrix [show]=showMatrixTrigger></app-matrix>
+            </div>
             <div id="screen">
                 <app-pc-screen></app-pc-screen>
             </div>
