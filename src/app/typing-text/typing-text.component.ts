@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { TimeInterval } from 'rxjs';
+
 
 @Component({
   selector: 'app-typing-text',
@@ -31,7 +31,7 @@ export class TypingTextComponent implements OnInit {
     if (index == this.commandLine.split('').length){
       clearInterval(this.interval);
       console.log("onterval cleared")
-    }
+      }
     }
 
 }
