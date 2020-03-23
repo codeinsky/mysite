@@ -1,7 +1,7 @@
-import { Component, OnInit, Input , SimpleChange} from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { trigger , state , transition , animate , style} from '@angular/animations';
 import {matrixParams} from "./matrixParams"
-import { TimeInterval } from 'rxjs';
+
 
 @Component({
   selector: 'app-matrix',
@@ -10,68 +10,48 @@ import { TimeInterval } from 'rxjs';
   animations:[
    trigger('matrix' , [
      transition('void => *' , [
-       style({opacity:0 , position:'absolute', top:'5px', left:'{{left}}'+'px', color:'green'}),
+       style({opacity:0.4 , position:'absolute', top:'5px', left:'{{left}}'+'px', color:'green'}),
        animate('{{time}}'+'ms' , style({opacity:1, position:'absolute', top:'100px' , left:'{{left}}' + 'px'}))
         ], {params: { time:'100' , left:'5'}})
       ])
     ]})
 
 export class MatrixComponent implements OnInit {
-  @Input() show:Boolean;
-  private interval;
-  public params:matrixParams[] = [];
-  public matrixData: matrixParams[];
-  public test= '150';
+
+  private matrixCount=10;
+  private matrixDelayed=10;
+  public params:matrixParams[]=[];
   constructor() { }
   
   ngOnInit(): void {
-    this.generateParams();
-  }
 
-  ngOnChanges(changes: SimpleChange) {
-    console.log(changes)
   }
 
   generateParams(){
-    // for (let i=0; i<1; i++){
-    //   let param:matrixParams = {symbol:"", width:"" , speed:""};
-    //   let result:number =  Math.floor(Math.random() * (1 - 0 + 1)) + 0;
-    //   let left:number = Math.floor(Math.random() * (1 - 40+ 360)) + 40;
-    //   let time:number = Math.floor(Math.random() * (1 - 600 + 2500)) + 600;
+    for (var i=1 ; i<this.matrixCount ; i++){
+      let param:matrixParams = {symbol:"", width:"" , speed:""};
+      let result:number =  Math.floor(Math.random() * (1 - 0 + 1)) + 0;
+      let left:number = Math.floor(Math.random() * (1 - 40+ 360)) + 40;
+      let time:number = Math.floor(Math.random() * (1 - 700 + 2000)) + 700;
 
-    //   param.symbol = result.toString();
-    //   param.width = left.toString();
-    //   param.speed = time.toString();
-    //   this.params.push(param);  
-    //   console.log(param.width);   
+      param.symbol = result.toString();
+      param.width = left.toString();
+      param.speed = time.toString();
+      this.params.push(param);   
+    
+    }
 
+  }
 
-        let x=0;
-        this.interval = setInterval(()=> {
-          if (x <200){
-            console.log("delayed interval" + x);
-            let param:matrixParams = {symbol:"", width:"" , speed:""};
-            let result:number =  Math.floor(Math.random() * (1 - 0 + 1)) + 0;
-            let left:number = Math.floor(Math.random() * (1 - 40+ 360)) + 40;
-            let time:number = Math.floor(Math.random() * (1 - 600 + 2500)) + 600;
-      
-            param.symbol = result.toString();
-            param.width = left.toString();
-            param.speed = time.toString();
-            this.params.push(param);  
-            console.log(param.width);   
-
-
-
-
-          }
-        },50);
-        if (x == 100){
-          clearInterval(this.interval);
-          console.log("onterval cleared")
-          }
-        
-    }  
+  start(){
+    for (var x = 0 ; x < this.matrixDelayed ; x++){
+      setTimeout (()=>{this.generateParams(); }, x*350);
+      // this.generateParams();
+    }
+   
+    this.params=[];
+  }
+  
   }
 
 

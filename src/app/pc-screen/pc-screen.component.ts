@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pc-screen.component.css']
 })
 export class PcScreenComponent implements OnInit {
-
+  public show:boolean=false;
   constructor() { }
 
   ngOnInit(): void {
   }
+
+  typeHello(){
+    this.show=true;
+  };
 
 }

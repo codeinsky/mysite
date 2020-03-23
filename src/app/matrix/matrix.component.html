@@ -1,4 +1,4 @@
-<div *ngIf=show >
+<div>
         <span *ngFor="let param of params;" id="bin"
                 [@matrix]="{value :'go' , params: {time:param.speed , left:param.width}}" > 
                         {{param.symbol}}

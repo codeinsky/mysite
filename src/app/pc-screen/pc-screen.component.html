@@ -1,4 +1,7 @@
 <div id="screen">
-    <app-typing-text commandLine="root@myos:~/project$" color="green" delayTime=10></app-typing-text>
+    <app-typing-text commandLine="root@myos:~/project$" color="green" delayTime=10></app-typing-text><br>
+    <app-typing-text *ngIf=show commandLine="Hello world!!! " color="green" delayTime=300></app-typing-text>
     <app-cursor></app-cursor>
+    
 </div>
+

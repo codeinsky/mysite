@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatrixComponent } from '../matrix/matrix.component';
+import { PcScreenComponent } from '../pc-screen/pc-screen.component';
 
 @Component({
   selector: 'app-home',
@@ -7,13 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
   public showMatrixTrigger: Boolean = false;
+  @ViewChild(MatrixComponent) matrix : MatrixComponent;
+  @ViewChild(PcScreenComponent) screen: PcScreenComponent;
   constructor() { }
 
   ngOnInit(): void {
   }
+   runTheCode(){
+      this.matrix.start();
+      this.screen.typeHello();
+   }
 
-  switchMatrix(){
-    this.showMatrixTrigger = !this.showMatrixTrigger;
-  }
+
 
 }
