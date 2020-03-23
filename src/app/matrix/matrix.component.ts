@@ -9,8 +9,8 @@ import {matrixParams} from "./matrixParams"
   animations:[
    trigger('matrix' , [
      transition('void => *' , [
-       style({opacity:0 , position:'relative', top:'5px' , left:'{{left}}'+'px' , color:'green'}),
-       animate('{{time}}'+'ms' , style({opacity:1, position:'relative', top:'100px' , left:'{{left}}'+'px'}))
+       style({opacity:0 , position:'relative', top:'60px' , left:'{{left}}'+'px' , color:'green'}),
+       animate('{{time}}'+'ms' , style({opacity:1, position:'relative', top:'220px' , left:'{{left}}'+'px'}))
         ], {params: { time:'100' , left:'5'}})
       ])
     ]})
@@ -31,16 +31,17 @@ export class MatrixComponent implements OnInit {
   }
 
   generateParams(){
-    for (let i=0; i<100; i++){
+    for (let i=0; i<10; i++){
       let param:matrixParams = {symbol:"", width:"" , speed:""};
       let result:number =  Math.floor(Math.random() * (1 - 0 + 1)) + 0;
-      let left:number = Math.floor(Math.random() * (1 - 5 + 280)) + 5;
-      let time:number = Math.floor(Math.random() * (1 - 1000 + 2500)) + 1000;
+      let left:number = Math.floor(Math.random() * (1 - 20 + 250)) + 20;
+      let time:number = Math.floor(Math.random() * (1 - 600 + 2500)) + 600;
 
       param.symbol = result.toString();
       param.width = left.toString();
       param.speed = time.toString();
-      this.params.push(param);     
+      this.params.push(param);  
+      console.log(param.width);   
     }
     
   
