@@ -1,6 +1,9 @@
 import { Component,OnInit } from '@angular/core';
 import {CookieService} from 'ngx-cookie-service';
 import { IpServiceService } from "./ip-service.service";
+import { RestRequestsService} from "./rest-requests.service";
+import { Visitor } from "./rest-interfaces/visit"
+import { Vote } from "./rest-interfaces/vote"
 
 @Component({
   selector: 'app-root',
@@ -12,11 +15,13 @@ export class AppComponent {
   title = 'MySite';
   private cookieExprHr:number=5;
   public IpAddress:String = null;
-  constructor(private cookie:CookieService, private ip:IpServiceService){}
+
+  constructor(private cookie:CookieService, 
+              private ip:IpServiceService,
+              private restRequestService:RestRequestsService){}
 
   ngOnInit(): void {
 
-    console.log("ngOnIniti started");
     this.getIp();
     this.checkCookie();
     //this.resetCookie();
@@ -34,11 +39,19 @@ export class AppComponent {
 
   getIp(){
     this.ip.getIPAddress().subscribe((res:any)=>{
-      this.IpAddress = res.ip;
-      console.log("ip is " + this.IpAddress);
-      this.IpAddress = "";
-    })
+      let IpAddress:String = res.ip;
+      this.registerVisitor(IpAddress);
+    });
   }
+
+  registerVisitor(ip:String){
+    let visitor:Visitor={id:null , date: new Date() , ip:ip, comment:"Visitor from fronted"};
+    this.restRequestService.visitorRequest(visitor);
+
+  }
+
+
+
 
   checkCookie(){
     let cookies = this.cookie.get("visitorid");
@@ -58,4 +71,6 @@ export class AppComponent {
       this.cookie.deleteAll();
       console.log("All cookies deleted");
   }
+
+
 }
