@@ -13,6 +13,7 @@ import { TypingTextComponent } from './typing-text/typing-text.component';
 import { CursorComponent } from './cursor/cursor.component';
 import { MatrixComponent } from './matrix/matrix.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule
     
   ],
   providers: [],

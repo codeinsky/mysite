@@ -5,7 +5,7 @@
      <h4> Welcome </h4>
     </div>
     <div class="card-body" id="body">
-      <button  (click)="runTheCode()" id="runbtn" type="button" class="btn btn-secondary">RUN</button>
+      <button  (click)="runTheCode()" [disabled]="runClicked" id="runbtn" type="button" class="btn btn-secondary">{{buttonLabel}}</button>
             <app-typing-text 
               commandLine='System.out.println("Hello word!!!");'
               color="black"

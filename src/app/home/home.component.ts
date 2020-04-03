@@ -11,11 +11,17 @@ export class HomeComponent implements OnInit {
   public showMatrixTrigger: Boolean = false;
   @ViewChild(MatrixComponent) matrix : MatrixComponent;
   @ViewChild(PcScreenComponent) screen: PcScreenComponent;
+
+  public runClicked:boolean= false; 
+  public buttonLabel:String= "RUN";
+  public btnCass = "btn btn-secondary";
   constructor() { }
 
   ngOnInit(): void {
   }
    runTheCode(){
+      this.runClicked = true;
+      this.buttonLabel = "RAN";
       this.matrix.start();
       this.screen.typeHello();
    }

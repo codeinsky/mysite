@@ -15,10 +15,14 @@
         <router-outlet></router-outlet>
 </div>
 
-<div id="vote">
+<div id="vote" >
         <span>Vote</span><br>
-        <img src="https://img.icons8.com/cotton/64/000000/facebook-like--v1.png"/>
-        <img id="rotate" src="https://img.icons8.com/cotton/64/000000/facebook-like--v1.png"/>
+
+        <input type="image" *ngIf="disableVote" id="like"  (click)="like()" src="https://img.icons8.com/cotton/64/000000/facebook-like--v1.png"/>
+        <input type="image" *ngIf="disableVote" id="rotate"(click)="dislike()" src="https://img.icons8.com/cotton/64/000000/facebook-like--v1.png"/>
+        <br>
+        <span *ngIf="!disableVote">Thanks for Voting</span>
+
 
 </div>
 
