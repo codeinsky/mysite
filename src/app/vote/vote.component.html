@@ -1,13 +1,15 @@
 <div [@liked]="votedCurrentState" id="vote" >
-    <span>Vote</span><br>
 
-    <input type="image" *ngIf="disableVote" id="like"  (click)="vote('like')" src="https://img.icons8.com/cotton/64/000000/facebook-like--v1.png"/>
-    <input type="image" *ngIf="disableVote" id="rotate"(click)="vote('dislike')" src="https://img.icons8.com/cotton/64/000000/facebook-like--v1.png"/>
+    <span style="color: honeydew;"> Do you like that page </span> <br>
+    <input type="image" id="like"  (click)="vote('like')" src="https://img.icons8.com/dusk/64/000000/thumb-up.png"/>
+    <span id="or"> OR </span>
+    <input type="image" id="dislike" (click)="vote('dislike')" src="https://img.icons8.com/dusk/64/000000/thumbs-down.png"/>
+    
     <br>
 </div>
 
 <div [@thanks]=thanksCurrentState id="thanks">
-    <span>Thanks</span>
+    <span style="color: honeydew;">Thanks</span>
     <br>
     <img src="https://img.icons8.com/color/48/000000/thank-you.png"/>
 </div>

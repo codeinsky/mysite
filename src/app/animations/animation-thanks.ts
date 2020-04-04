@@ -3,7 +3,7 @@ import {trigger , style , state , transition , animate} from "@angular/animation
 
 export const Thanks = trigger('thanks', [
   state('initial', style({
-    transform: 'scale(0)' , color:"red"
+    transform: 'scale(0)'
     
   })),
   state('final', style({

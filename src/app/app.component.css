@@ -22,6 +22,7 @@
 
 
 #vote{
+  height: 100px;
   width: 200px;
   position: absolute;
   bottom: 10px ;
