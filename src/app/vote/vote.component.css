@@ -2,8 +2,8 @@
 
 
   #like{
-    height: 50px;
-    width: 50px;
+    height: 40px;
+    width: 40px;
   }
 
   #like:hover{
@@ -14,8 +14,8 @@
   #dislike{
     position: relative;
     top: 10px;
-    height: 50px;
-    width: 50px;
+    height: 40px;
+    width: 40px;
   }
 
   #dislike:hover{
@@ -25,7 +25,7 @@
 
   #or {
     position: relative;
-    bottom: 20px;
+    bottom: 12px;
     font-size: large;
     color: lightgray;
   }
@@ -41,6 +41,6 @@
 
   #thanks{
     position: absolute;
-    left:50px;
+    left:38px;
     bottom:2px;
   }
