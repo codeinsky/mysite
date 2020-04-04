@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Visitor} from './rest-interfaces/visit';
-import { Vote } from './rest-interfaces/vote'
+import { Visitor} from '../rest-interfaces/visit';
+import { Vote } from '../rest-interfaces/vote'
 
 @Injectable({
   providedIn: 'root'

@@ -19,11 +19,7 @@
   width: 80px;
 }
 
-#rotate{
-  transform: rotate(180deg);
-  position: relative;
-  top: 15px;
-}
+
 
 #vote{
   width: 200px;

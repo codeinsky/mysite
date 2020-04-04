@@ -15,16 +15,9 @@
         <router-outlet></router-outlet>
 </div>
 
-<div id="vote" >
-        <span>Vote</span><br>
-
-        <input type="image" *ngIf="disableVote" id="like"  (click)="vote('like')" src="https://img.icons8.com/cotton/64/000000/facebook-like--v1.png"/>
-        <input type="image" *ngIf="disableVote" id="rotate"(click)="vote('dislike')" src="https://img.icons8.com/cotton/64/000000/facebook-like--v1.png"/>
-        <br>
-        <span *ngIf="!disableVote">Thanks for Voting</span>
 
 
-</div>
+<app-vote id="vote"></app-vote>
 
 <div id="iconlink">
         Icon's provided by <a target="_blank" href="https://icons8.com">Icons8</a>

@@ -13,7 +13,8 @@ import { TypingTextComponent } from './typing-text/typing-text.component';
 import { CursorComponent } from './cursor/cursor.component';
 import { MatrixComponent } from './matrix/matrix.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+import { VoteComponent } from './vote/vote.component'
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { HttpClientModule } from '@angular/common/http'
     TypingTextComponent,
     CursorComponent,
     MatrixComponent,
+    VoteComponent,
     
   ],
   imports: [

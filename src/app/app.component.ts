@@ -1,14 +1,15 @@
 import { Component,OnInit } from '@angular/core';
 import {CookieService} from 'ngx-cookie-service';
-import { IpServiceService } from "./ip-service.service";
-import { RestRequestsService} from "./rest-requests.service";
+import { IpServiceService } from "./services/ip-service.service";
+import { RestRequestsService} from "./services/rest-requests.service";
 import { Visitor } from "./rest-interfaces/visit"
-import { Vote } from "./rest-interfaces/vote"
+
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
   public disableVote:boolean = true;
@@ -23,39 +24,6 @@ export class AppComponent {
   ngOnInit(): void {
     this.newUserArrived();
   }
-
-  vote(voteResult:String){
-   // this.disableVote=false;
-    //Rtrive IP address of the vote client 
-    this.ip.getIPAddress().subscribe(
-      
-      (res:any)=>{
-       let vote:Vote = {id:null,liked:null,unliked:null,date:new Date(),ipVoted:res.ip,cookieVoted:null}
-       if (voteResult=="like"){
-          vote.liked=true;
-          vote.unliked=false;
-       }   
-       else {
-        vote.liked=false;
-        vote.unliked=true;
-       }
-
-    //Register like on backend DB  
-      this.restRequestService.vote(vote).subscribe(
-        {
-          next: data => 
-          {
-            console.log("Liked" + data); 
-          },
-          error: error => 
-          {
-            console.error("Error response", error);
-          }
-        }
-          );
-    });
-  }
-
 
   newUserArrived(){
     this.ip.getIPAddress().subscribe((res:any)=>{

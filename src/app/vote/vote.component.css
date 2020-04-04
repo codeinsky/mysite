@@ -1,0 +1,17 @@
+#rotate{
+    transform: rotate(180deg);
+    position: relative;
+    top: 15px;
+  }
+
+  #vote{
+    position: absolute;
+    left:2px;
+    bottom:2px;
+  }
+
+  #thanks{
+    position: absolute;
+    left:40px;
+    bottom:2px;
+  }
