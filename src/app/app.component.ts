@@ -21,56 +21,74 @@ export class AppComponent {
               private restRequestService:RestRequestsService){}
 
   ngOnInit(): void {
-
-    this.getIp();
-    this.checkCookie();
-    //this.resetCookie();
+    this.newUserArrived();
   }
 
-  like(){
-    console.log("Liked");
-    this.disableVote=false;
-  }
+  vote(voteResult:String){
+   // this.disableVote=false;
+    //Rtrive IP address of the vote client 
+    this.ip.getIPAddress().subscribe(
+      
+      (res:any)=>{
+       let vote:Vote = {id:null,liked:null,unliked:null,date:new Date(),ipVoted:res.ip,cookieVoted:null}
+       if (voteResult=="like"){
+          vote.liked=true;
+          vote.unliked=false;
+       }   
+       else {
+        vote.liked=false;
+        vote.unliked=true;
+       }
 
-  dislike(){
-    console.log("DisLiked");
-    this.disableVote=false;
-  }
-
-  getIp(){
-    this.ip.getIPAddress().subscribe((res:any)=>{
-      let IpAddress:String = res.ip;
-      this.registerVisitor(IpAddress);
+    //Register like on backend DB  
+      this.restRequestService.vote(vote).subscribe(
+        {
+          next: data => 
+          {
+            console.log("Liked" + data); 
+          },
+          error: error => 
+          {
+            console.error("Error response", error);
+          }
+        }
+          );
     });
   }
 
-  registerVisitor(ip:String){
-    let visitor:Visitor={id:null , date: new Date() , ip:ip, comment:"Visitor from fronted"};
-    this.restRequestService.visitorRequest(visitor);
 
+  newUserArrived(){
+    this.ip.getIPAddress().subscribe((res:any)=>{
+      let IpAddress:String = res.ip;
+      let visitor:Visitor  = {id:null , date:new Date() , ip:IpAddress, comment:"Visitor from fronted1"};
+      this.restRequestService.visitorRequest(visitor).subscribe(
+        {
+          next: data => console.log(data),
+          error: error => console.error("Error response", error)
+        }
+          );
+    });
   }
 
 
+  // checkCookie(){
+  //   let cookies = this.cookie.get("visitorid");
+  //   if (cookies == ""){
+  //     console.log("First time visit")
+  //     this.cookie.set("visitorid","1234", 0.5);
+  //     console.log("cookie set")
+  //   } 
+  //   else {
+  //     console.log("That is user ID, already visited" + " " + this.cookie.get("visitorid"));
+  //     this.disableVote=false;
 
+  //   }
+  // }
 
-  checkCookie(){
-    let cookies = this.cookie.get("visitorid");
-    if (cookies == ""){
-      console.log("First time visit")
-      this.cookie.set("visitorid","1234", 0.5);
-      console.log("cookie set")
-    } 
-    else {
-      console.log("That is user ID, already visited" + " " + this.cookie.get("visitorid"));
-      this.disableVote=false;
-
-    }
-  }
-
-  resetCookie(){
-      this.cookie.deleteAll();
-      console.log("All cookies deleted");
-  }
+  // resetCookie(){
+  //     this.cookie.deleteAll();
+  //     console.log("All cookies deleted");
+  // }
 
 
 }
