@@ -14,7 +14,8 @@ import { CursorComponent } from './cursor/cursor.component';
 import { MatrixComponent } from './matrix/matrix.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
-import { VoteComponent } from './vote/vote.component'
+import { VoteComponent } from './vote/vote.component';
+import { DeviceDetectorModule } from 'ngx-device-detector';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { VoteComponent } from './vote/vote.component'
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    DeviceDetectorModule.forRoot()
     
   ],
   providers: [],

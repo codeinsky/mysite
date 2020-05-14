@@ -1,26 +1,30 @@
 <app-navbar></app-navbar>
-<div id="hello">
-        Hello! 
-        I am Alexander, <br>
-        Full Stack Developer <br>
-        <img  id="icon" src="https://img.icons8.com/color/96/000000/spring-logo.png">
-        <img  id="icon" src="https://img.icons8.com/color/96/000000/java-coffee-cup-logo.png"/>
-        <img  id="icon" src="https://img.icons8.com/color/96/000000/angularjs.png"/>
-        <img  id="icon" src="https://img.icons8.com/color/96/000000/docker.png"/>
-        <img  id="icon" src="https://img.icons8.com/doodle/96/000000/android--v2.png"/>
-        <img  id="icon" src="https://img.icons8.com/color/96/000000/postgreesql.png"/>
+        <div id="hello" [style.top.px] = 'helloCSStop' 
+                        [style.left.px]='helloCSSleft'
+                        [style.font-size.px]='fontSize'>
+                Hello! 
+                I am Alexander, <br>
+                Full Stack Developer <br>
+        </div>
+        <div id="technlogies" [style.top.px]='technologiesTop' [style.left.px]='technologiesLeft'>
+                <img  id="icon" [style.height.px]='iConeHeigh' [style.width.px]='iConeWidth' src="https://img.icons8.com/color/96/000000/spring-logo.png">
+                <img  id="icon" [style.height.px]='iConeHeigh' [style.width.px]='iConeWidth' src="https://img.icons8.com/color/96/000000/java-coffee-cup-logo.png"/>
+                <img  id="icon" [style.height.px]='iConeHeigh' [style.width.px]='iConeWidth' src="https://img.icons8.com/color/96/000000/angularjs.png"/>
+                <img  id="icon" [style.height.px]='iConeHeigh' [style.width.px]='iConeWidth' src="https://img.icons8.com/color/96/000000/docker.png"/>
+                <img  id="icon" [style.height.px]='iConeHeigh' [style.width.px]='iConeWidth' src="https://img.icons8.com/doodle/96/000000/android--v2.png"/>
+                <img  id="icon" [style.height.px]='iConeHeigh' [style.width.px]='iConeWidth' src="https://img.icons8.com/color/96/000000/postgreesql.png"/>
 
-</div>
+        </div>
 
-<div id="outlet">
+<div id="outlet" [style.width.px]='routerWidth'>
         <router-outlet></router-outlet>
 </div>
 
 
 
-<app-vote id="vote"></app-vote>
+<app-vote id="vote" [style.top.px]='voteTop' [style.left.%]='voteLeft' ></app-vote>
 
-<div id="iconlink">
+<div id="iconlink" [style.top.px]='iconTop'>
         Icon's provided by <a target="_blank" href="https://icons8.com">Icons8</a>
 </div>
 

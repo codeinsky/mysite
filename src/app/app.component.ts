@@ -2,7 +2,8 @@ import { Component,OnInit } from '@angular/core';
 import {CookieService} from 'ngx-cookie-service';
 import { IpServiceService } from "./services/ip-service.service";
 import { RestRequestsService} from "./services/rest-requests.service";
-import { Visitor } from "./rest-interfaces/visit"
+import { Visitor } from "./rest-interfaces/visit";
+import { DeviceDetectorService } from 'ngx-device-detector';
 
 
 
@@ -16,13 +17,56 @@ export class AppComponent {
   title = 'MySite';
   private cookieExprHr:number=5;
   public IpAddress:String = null;
+  public helloCSStop:String = '130';
+  public helloCSSleft:String= '200';
+  public fontSize:String = '35'; 
+  public iConeHeigh:String = '80';
+  public iConeWidth:String = '80';
+  public routerWidth:String='450';
+  public voteTop:String='540';
+  public iconTop:String='650';
+  public voteLeft:String='50';
+  public technologiesTop:String='350';
+  public technologiesLeft:String='100';
+  public ifMobile:boolean=false; 
 
   constructor(private cookie:CookieService, 
               private ip:IpServiceService,
-              private restRequestService:RestRequestsService){}
+              private restRequestService:RestRequestsService,
+              private deviceDetector:DeviceDetectorService){
 
+                this.ifMobileCSS();
+              }
+
+             
   ngOnInit(): void {
     this.newUserArrived();
+  }
+
+  ifMobileCSS(){
+    if (this.deviceDetector.isMobile()){
+        console.log("that is mobile device");
+        this.helloCSStop = "300";
+        this.helloCSSleft = "2";
+        this.fontSize="20";
+        this.iConeHeigh = '80';
+        this.iConeWidth = '80';
+        this.routerWidth = '450';
+        this.voteTop = '650';
+        this.iconTop = '760';
+        this.voteLeft = '110';
+        this.technologiesTop= '550';
+        this.technologiesLeft = '80';
+       
+
+    }
+    else if (this.deviceDetector.isTablet()){
+      console.log ("That is a tablet ");
+    }
+
+    else {
+      console.log("That is a desktop");
+    }
   }
 
   newUserArrived(){
