@@ -21,6 +21,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { ProjectImageDialogComponent } from './project-image-dialog/project-image-dialog.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,7 +46,8 @@ import { ProjectImageDialogComponent } from './project-image-dialog/project-imag
     HttpClientModule,
     DeviceDetectorModule.forRoot(),
     MatTabsModule,
-    MatDialogModule
+    MatDialogModule,
+ 
 
     
   ],
