@@ -1,9 +1,25 @@
 <div class="card" id="card">
     <div class="card-header">
-      <h4>Projects</h4>
+      <h2 style="font-weight: bolder;">Projects</h2>
     </div>
     <div class="card-body" id="body">
-      <h5 class="card-title">Projects list</h5>
-      <h3>UNDER CONSTRUCTION</h3>
+    
+      <mat-tab-group>
+        <mat-tab 
+        *ngFor="let project of projects"
+        label="{{project.name}}"> 
+        <p> <b>SYTEMS USED:</b> <br> {{project.system}}</p> 
+        <p> <b>DOCS:</b> <br> {{project.comment}}</p>
+        <p> <b>LINKS:</b><br> <span *ngFor="let link of project.links">
+                              <a href="{{link}}">{{link}}</a> <br>
+                              </span>
+        </p>
+        <mat-list style="border-bottom: 2px;">
+          <mat-list-item *ngFor="let image of project.images" style="padding-left: 8px;"> 
+            <button (click)="openDialog(image)"><img src="{{image}}"></button>
+          </mat-list-item>
+         </mat-list>
+      </mat-tab>
+      </mat-tab-group>
     </div>
   </div>

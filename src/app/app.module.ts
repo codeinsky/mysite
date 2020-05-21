@@ -16,6 +16,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { VoteComponent } from './vote/vote.component';
 import { DeviceDetectorModule } from 'ngx-device-detector';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatDialogModule } from '@angular/material/dialog';
+import { ProjectImageDialogComponent } from './project-image-dialog/project-image-dialog.component';
+
 
 @NgModule({
   declarations: [
@@ -30,6 +34,8 @@ import { DeviceDetectorModule } from 'ngx-device-detector';
     CursorComponent,
     MatrixComponent,
     VoteComponent,
+    ProjectImageDialogComponent,
+    
     
   ],
   imports: [
@@ -37,7 +43,10 @@ import { DeviceDetectorModule } from 'ngx-device-detector';
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    DeviceDetectorModule.forRoot()
+    DeviceDetectorModule.forRoot(),
+    MatTabsModule,
+    MatDialogModule
+
     
   ],
   providers: [],

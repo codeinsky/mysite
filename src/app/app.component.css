@@ -1,10 +1,11 @@
+
 #hello{
   text-align: center;
   color: #F8F8FF;  
   font-size: 30px;
   font-weight: bold;
   position: absolute;
-  top: 200px;
+  top: 250px;
   left: 100px;
 }
 
@@ -20,7 +21,7 @@
 
 #iconlink{
   position: absolute;
-  top: 650px;
+  top: 750px;
   left: 10px;
 }
 
@@ -46,7 +47,7 @@
   border-radius: 25px;
   background-color: #F8F8FF;
   width: 450px;
-  height: 400px;
+  height: 500px;
   position: absolute;
   top: 70px;
   left: 50%;

@@ -52,10 +52,10 @@ export class AppComponent {
         this.iConeHeigh = '80';
         this.iConeWidth = '80';
         this.routerWidth = '450';
-        this.voteTop = '650';
-        this.iconTop = '760';
+        this.voteTop = '710';
+        this.iconTop = '800';
         this.voteLeft = '110';
-        this.technologiesTop= '550';
+        this.technologiesTop= '650';
         this.technologiesLeft = '80';
        
 
