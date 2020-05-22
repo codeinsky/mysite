@@ -7,7 +7,7 @@ export const Thanks = trigger('thanks', [
     
   })),
   state('final', style({
-    transform: 'scale(1.2)'
+    transform: 'scale(0.8)'
   })),
   transition('initial=>final', animate('2800ms 500ms'))
 ])

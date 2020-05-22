@@ -24,40 +24,44 @@ export class VoteComponent implements OnInit {
   vote(voteResult:String){
     
      this.ip.getIPAddress().subscribe(
-       
        (res:any)=>{
-        let vote:Vote = {id:null,liked:null,disliked:null,date:new Date(),ipVoted:res.ip,cookieVoted:null}
+        let vote:Vote = {id:null,liked:false,disliked:true,date:new Date(),ipVoted:res.ip,cookieVoted:null}
         if (voteResult=="like"){
            vote.liked=true;
            vote.disliked=false;
         }   
-        else {
-     
-         vote.liked=false;
-         vote.disliked=true;
-        }
- 
-     //Register like/dislike on backend DB  
-       this.restRequestService.vote(vote).subscribe(
-         {
-           next: data => 
-           {
-             console.log("Voted " + data); 
-             this.likedStarAnimation();
-             this.thanksStartAnimation();
-           },
-           error: error => 
-           {
-             console.error("Error response ", error);
-           }
-         }
-           );
+        this.logVoteInDb(vote);
+
      },
      (error)=>{
        console.log("Failed to retrive the IP");
-     }
-     );
+       let vote = {id:null,liked:false,disliked:true,date:new Date(),ipVoted:"anonyoums",cookieVoted:null};
+       if (voteResult=="like"){
+        vote.liked=true;
+        vote.disliked=false;}   
+        this.logVoteInDb(vote);
+        }
+    );
    }
+
+    logVoteInDb(vote:Vote){
+      this.restRequestService.vote(vote).subscribe(
+        {
+          next: data => 
+          {
+            console.log("Voted " + data); 
+            this.likedStarAnimation();
+            this.thanksStartAnimation();
+          },
+          error: error => 
+          {console.error("Error response ", error);}
+        }
+          );      
+
+    }
+
+
+
 
    likedStarAnimation(){
      if (this.votedCurrentState="initial"){
@@ -75,4 +79,6 @@ export class VoteComponent implements OnInit {
      }
 
    }
+
+
 }

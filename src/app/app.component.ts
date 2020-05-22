@@ -40,7 +40,8 @@ export class AppComponent {
 
              
   ngOnInit(): void {
-    this.newUserArrived();
+    //this.newUserArrived();
+    this.newUserLogToDb();
   }
 
   ifMobileCSS(){
@@ -52,8 +53,8 @@ export class AppComponent {
         this.iConeHeigh = '80';
         this.iConeWidth = '80';
         this.routerWidth = '450';
-        this.voteTop = '710';
-        this.iconTop = '800';
+        this.voteTop = '740';
+        this.iconTop = '850';
         this.voteLeft = '110';
         this.technologiesTop= '650';
         this.technologiesLeft = '80';
@@ -69,17 +70,43 @@ export class AppComponent {
     }
   }
 
-  newUserArrived(){
-    this.ip.getIPAddress().subscribe((res:any)=>{
-      let IpAddress:String = res.ip;
-      let visitor:Visitor  = {id:null , date:new Date() , ip:IpAddress, comment:"Visitor from fronted1"};
-      this.restRequestService.visitorRequest(visitor).subscribe(
-        {
-          next: data => console.log(data),
-          error: error => console.error("Error response", error)
-        }
-          );
-    });
+  // newUserArrived(){
+  //   this.ip.getIPAddress().subscribe((res:any)=>{
+  //     let IpAddress:String = res.ip;
+  //     let visitor:Visitor  = {id:null , date:new Date() , ip:IpAddress, comment:"Visitor from fronted1"};
+  //     this.restRequestService.visitorRequest(visitor).subscribe(
+  //       {
+  //         next: data => console.log(data),
+  //         error: error => console.error("Error response", error)
+  //       }
+  //         );
+  //   });
+  // }
+  // Need test of next mmethod insated in previus TEST 
+
+  newUserLogToDb(){
+    let IpAddress:String;
+    this.ip.getIPAddress().subscribe(
+      (res:any) =>{
+        IpAddress = res.ip;
+        let visitor:Visitor  = {id:null , date:new Date() , ip:IpAddress, comment:"Visitor from fronted1"};
+        console.log(res.ip);
+        this.restRequestService.visitorRequest(visitor).subscribe(
+          (res:any)=>{console.log("user saved")},
+          (error)=>{console.log("user save failed")}
+        );
+      }, 
+
+      (error)=>{
+        IpAddress = "anonymous visitor";
+        let visitor:Visitor  = {id:null , date:new Date() , ip:IpAddress, comment:"Visitor from fronted1"};
+        console.log(console.log(error));
+        this.restRequestService.visitorRequest(visitor).subscribe(
+          (res:any)=>{console.log("anonymous user saved")},
+          (error)=>{console.log("soaving anonymous user failed")}
+        );
+      }
+    );
   }
 
 

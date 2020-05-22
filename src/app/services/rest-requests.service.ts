@@ -7,7 +7,7 @@ import { Vote } from '../rest-interfaces/vote'
   providedIn: 'root'
 })
 export class RestRequestsService {
-   // localUrl:String = "http://localhost:8181";
+   //localUrl:String = "http://localhost:8181";
   //localUrl:String = "http://167.99.118.237:80";
   localUrl:String="";
   constructor(private http:HttpClient) { }

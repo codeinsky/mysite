@@ -19,6 +19,7 @@ import { DeviceDetectorModule } from 'ngx-device-detector';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ProjectImageDialogComponent } from './project-image-dialog/project-image-dialog.component';
+import { ProjectsService } from './services/projects.service';
 
 
 
@@ -51,7 +52,7 @@ import { ProjectImageDialogComponent } from './project-image-dialog/project-imag
 
     
   ],
-  providers: [],
+  providers: [ProjectsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
